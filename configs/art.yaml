@@ -1,0 +1,44 @@
+# Transforms
+size: 32
+color_jitter: 0.5
+mean: [0.4914, 0.4822, 0.4465]
+std: [0.2023, 0.1994, 0.2010]
+multi_crop: 6
+mc_size: 18
+mc_scale: [0.3, 0.75]
+
+# LOADER
+root: './data'
+s_batch: 64
+u_batch: 256
+worker: 0
+classes_per_batch: 10
+views: 2
+epochs: 200
+pin_memory: True
+drop_last: True
+
+# MODEL
+model_name: wide_resnet28w2
+output_dim: 128
+use_pred_head: False
+only_best: False
+temperature: 0.1
+label_smoothing: 0.1
+sharpen: 0.25
+me_max: True
+ema: 0.97
+
+# OPTIMIZER
+ref_lr: 3.2
+min_lr: 0.8
+max_lr: 0.032
+weight_decay: 1.0e-06
+momentum: 0.9
+warm_up: 30
+use_fp: True
+
+# Criterion
+lamda: 0.1
+anchor_epsilon: 0.7
+target_epsilon: 0.1
